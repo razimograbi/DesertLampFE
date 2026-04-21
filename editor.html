@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("opskb_theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editor — OpsKB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-nav">
+        <a class="app-nav__brand" href="index.html">OpsKB</a>
+        <nav class="app-nav__actions">
+          <a class="btn btn--tertiary" href="index.html">Home</a>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="theme-switch"
+            role="switch"
+            aria-checked="false"
+            aria-label="Switch to light mode"
+            title="Use light theme"
+          >
+            <span class="theme-switch__track">
+              <span class="theme-switch__label theme-switch__label--dark"
+                >Dark mode</span
+              >
+              <span class="theme-switch__lane">
+                <span class="theme-switch__thumb">
+                  <svg
+                    class="theme-switch__icon theme-switch__icon--sun"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    aria-hidden="true"
+                    focusable="false"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                  >
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                    />
+                  </svg>
+                  <svg
+                    class="theme-switch__icon theme-switch__icon--moon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    aria-hidden="true"
+                    focusable="false"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span class="theme-switch__label theme-switch__label--light"
+                >Light mode</span
+              >
+            </span>
+          </button>
+          <button type="button" class="btn btn--secondary" data-action="logout">Sign out</button>
+        </nav>
+      </header>
+
+      <main class="app-main app-main--editor-bilingual">
+        <section class="hero">
+          <h1 class="hero__title">Publish Article</h1>
+          <p class="hero__subtitle">Hello operation team manager!</p>
+          <p
+            id="editor-article-byline"
+            class="content-article__byline text-muted hidden"
+          ></p>
+        </section>
+
+        <div id="editor-status" class="form-error hidden" role="status"></div>
+
+        <section class="editor-locale-block" lang="en">
+          <h2 class="editor-locale-label">English</h2>
+          <label class="sr-only" for="article-title-input">Article title (English)</label>
+          <input
+            id="article-title-input"
+            class="editor-title-input"
+            type="text"
+            placeholder="Title (e.g. Refund customer)"
+            lang="en"
+          />
+          <div class="editor-wrap">
+            <div id="editor"></div>
+          </div>
+        </section>
+
+        <section class="editor-locale-block editor-locale-block--arabic" lang="ar" dir="rtl">
+          <p class="editor-arabic-tip" role="note">
+            <span class="editor-arabic-tip__title">Tip</span>
+            <span class="editor-arabic-tip__text" dir="ltr" lang="en">
+              Press <kbd class="kbd">Ctrl</kbd><span class="kbd-plus">+</span><kbd class="kbd">Shift</kbd> to switch keyboard layout while you type — that fixes mixed Arabic and English input.
+            </span>
+            <span class="editor-arabic-tip__text editor-arabic-tip__text--ar" lang="ar">
+              اضغط <kbd class="kbd" dir="ltr">Ctrl</kbd><span class="kbd-plus">+</span><kbd class="kbd" dir="ltr">Shift</kbd> لتبديل لغة لوحة المفاتيح وكتابة النص بشكل صحيح.
+            </span>
+          </p>
+          <h2 class="editor-locale-label editor-locale-label--ar">العربية</h2>
+          <label class="sr-only" for="article-title-ar-input">عنوان المقالة</label>
+          <input
+            id="article-title-ar-input"
+            class="editor-title-input editor-title-input--rtl"
+            type="text"
+            placeholder="العنوان بالعربية (اختياري)"
+            lang="ar"
+            dir="rtl"
+          />
+          <div class="editor-wrap editor-wrap--rtl">
+            <div id="editor-ar"></div>
+          </div>
+        </section>
+
+        <button id="publish-btn" type="button" class="btn btn--primary">Publish</button>
+      </main>
+    </div>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
+    <script type="module" src="js/editor-quill.js" defer></script>
+  </body>
+</html>

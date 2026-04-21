@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting… Desert Lamp</title>
+    <script type="module">
+      import { page } from "./js/config.js";
+      const id = new URLSearchParams(window.location.search).get("id");
+      const dest = id
+        ? `${page("index.html")}?id=${encodeURIComponent(id)}`
+        : page("index.html");
+      window.location.replace(dest);
+    </script>
+  </head>
+  <body>
+    <p style="font-family: system-ui; padding: 1rem">Redirecting…</p>
+  </body>
+</html>

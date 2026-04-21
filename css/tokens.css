@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+
+  --surface: #0b1326;
+  --surface_dim: #0a1020;
+  --surface_container_lowest: rgba(19, 27, 46, 0.7);
+  --surface_container_low: #131b2e;
+  --surface_container: #1a2235;
+  --surface_container_high: #222a3d;
+  --surface_container_highest: #2a3348;
+  --surface_bright: rgba(49, 57, 77, 0.8);
+  --surface_variant: #1e2639;
+
+  --primary: #adc7ff;
+  --primary_container: #1a73e8;
+  --on_primary_container: #ffffff;
+
+  --secondary_container: #2d3548;
+  --on_secondary_container: #e8eaed;
+  --secondary_fixed: #3d4558;
+  --primary_fixed: #adc7ff;
+
+  --tertiary: #7dd3c0;
+  --tertiary_container: rgba(125, 211, 192, 0.15);
+  --on_tertiary_container: #b8ebe0;
+  --tertiary_fixed_dim: rgba(125, 211, 192, 0.12);
+
+  --error_container: rgba(207, 102, 121, 0.18);
+  --on_error_container: #f2b8be;
+
+  --on_surface: #e8eaed;
+  --on_surface_variant: #9aa0a6;
+  --outline_variant: rgba(65, 71, 84, 0.15);
+
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-arabic: "Noto Sans Arabic", "Segoe UI", system-ui, sans-serif;
+
+  --display-lg: 3.5rem;
+  --headline-md: 1.75rem;
+  --body-lg: 1rem;
+  --label-md: 0.75rem;
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.75rem;
+  --radius-default: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --spacing-2: 0.4rem;
+  --spacing-3: 0.6rem;
+  --spacing-4: 0.8rem;
+  --spacing-5: 1rem;
+  --spacing-6: 1.3rem;
+  --spacing-8: 1.75rem;
+  --spacing-10: 2.25rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+
+  --shadow-ambient: 0 0 40px rgba(232, 234, 237, 0.06);
+  --shadow-focus: 0 0 0 2px var(--primary);
+  --backdrop-blur-nav: blur(12px);
+
+  /* Trending list (same as previous hardcoded dark values) */
+  --trending_row_hover: rgba(42, 51, 72, 0.55);
+  --trending_row_active: rgba(49, 57, 77, 0.65);
+  --trending_spinner_track: rgba(232, 234, 237, 0.12);
+  --trending_item_border: rgba(232, 234, 237, 0.08);
+
+  /* Neumorphic theme toggle (nav) */
+  --theme-switch-track-bg: #161d30;
+  --theme-switch-thumb-bg: #1e2639;
+  --theme-switch-label: #8b9199;
+  --theme-switch-shadow-inset-dark: rgba(0, 0, 0, 0.5);
+  --theme-switch-shadow-inset-light: rgba(255, 255, 255, 0.05);
+  --theme-switch-thumb-shadow: 4px 4px 10px rgba(0, 0, 0, 0.45),
+    -2px -2px 6px rgba(255, 255, 255, 0.06);
+}
+
+/*
+ * Light theme — default remains dark (:root above). Toggle sets <html data-theme="light">.
+ */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --surface: #f4f6fb;
+  --surface_dim: #eef1f8;
+  --surface_container_lowest: rgba(255, 255, 255, 0.92);
+  --surface_container_low: #ffffff;
+  --surface_container: #f0f3f9;
+  --surface_container_high: #e8ecf4;
+  --surface_container_highest: #dde3ee;
+  --surface_bright: rgba(255, 255, 255, 0.98);
+  --surface_variant: #e1e6ef;
+
+  --primary: #1557b0;
+  --primary_container: #1a73e8;
+  --on_primary_container: #ffffff;
+
+  --secondary_container: #dfe3ea;
+  --on_secondary_container: #1a1c1e;
+  --secondary_fixed: #c5cad6;
+  --primary_fixed: #1557b0;
+
+  --tertiary: #0b6e5f;
+  --tertiary_container: rgba(11, 110, 95, 0.12);
+  --on_tertiary_container: #084a40;
+  --tertiary_fixed_dim: rgba(11, 110, 95, 0.08);
+
+  --error_container: rgba(179, 38, 30, 0.1);
+  --on_error_container: #8c1d18;
+
+  --on_surface: #1a1c1e;
+  --on_surface_variant: #5f6368;
+  --outline_variant: rgba(60, 64, 67, 0.14);
+
+  --shadow-ambient: 0 1px 2px rgba(60, 64, 67, 0.08),
+    0 2px 12px rgba(60, 64, 67, 0.06);
+  --shadow-focus: 0 0 0 2px var(--primary_container);
+
+  --trending_row_hover: rgba(0, 0, 0, 0.05);
+  --trending_row_active: rgba(0, 0, 0, 0.08);
+  --trending_spinner_track: rgba(60, 64, 67, 0.18);
+  --trending_item_border: rgba(60, 64, 67, 0.1);
+
+  --theme-switch-track-bg: #e4e9f2;
+  --theme-switch-thumb-bg: #f4f6fb;
+  --theme-switch-label: #80868b;
+  --theme-switch-shadow-inset-dark: rgba(163, 177, 198, 0.55);
+  --theme-switch-shadow-inset-light: rgba(255, 255, 255, 0.95);
+  --theme-switch-thumb-shadow: 4px 4px 10px rgba(163, 177, 198, 0.55),
+    -3px -3px 8px rgba(255, 255, 255, 0.9);
+}
