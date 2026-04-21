@@ -7,7 +7,7 @@ export const BASE_PATH = "";
  * Backend origin (see OpenAPI / Program.cs). Dev HTTPS example from API spec.
  * Set to "" only if the static site is served from the same origin as the API.
  */
-export const API_BASE_URL = "http://localhost:5104";
+export const API_BASE_URL = "https://desertlampbe-baf4dzahhmd0affv.israelcentral-01.azurewebsites.net";
 
 /** localStorage key for API JWT (internal tool). */
 export const JWT_STORAGE_KEY = "opskb_jwt";
