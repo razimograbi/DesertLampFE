@@ -1,10 +1,7 @@
 import { apiUrl, paths } from "./config.js";
 import { apiFetch, parseJson } from "./api.js";
 
-/**
- * ASP.NET often serializes `List<T>` as `{ "value": [...] }`.
- * @param {unknown} payload
- */
+
 export function unwrapList(payload) {
   if (Array.isArray(payload)) return payload;
   if (payload && typeof payload === "object") {

@@ -266,8 +266,9 @@ function loadTrending(container, user) {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "trending-list__btn";
-
+        
         const ar = String(item.titleArabic || "").trim();
+        
         const label = ar ? `${item.title} (${ar})` : item.title;
         btn.setAttribute("aria-label", `Open article: ${label}`);
 
@@ -277,17 +278,22 @@ function loadTrending(container, user) {
         const stack = document.createElement("span");
         stack.className = "trending-list__stack";
 
-        const en = document.createElement("span");
-        en.className = "trending-list__title-en";
-        en.textContent = item.title;
-        stack.appendChild(en);
+        // const en = document.createElement("span");
+        // en.className = "trending-list__title-en";
+        // en.textContent = item.title;
+        // stack.appendChild(en);
 
         if (ar) {
+          const maximumArabicTitleLength = 45;
+          let arabicTitleToDisplay = ar;
+          if(ar.length > maximumArabicTitleLength){
+            arabicTitleToDisplay = ar.substring(0, maximumArabicTitleLength) + "...";
+          }
           const arEl = document.createElement("span");
           arEl.className = "trending-list__title-ar";
           arEl.setAttribute("dir", "rtl");
           arEl.setAttribute("lang", "ar");
-          arEl.textContent = ar;
+          arEl.textContent = arabicTitleToDisplay;
           stack.appendChild(arEl);
         }
 
