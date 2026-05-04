@@ -19,7 +19,7 @@ function normalizeItems(payload) {
  */
 export async function searchArticles(q) {
   const query = (q || "").trim();
-  if (!query) return [];
+  if (!query || query.length < 2) return [];
   const path = paths.articlesSearch(query);
   const res = await apiFetch(path, { method: "GET" });
   if (!res.ok) return [];
@@ -83,11 +83,18 @@ export function bindGlobalSearch(opts) {
   }, debounceMs);
 
   input.addEventListener("input", () => {
-    if (!input.value.trim()) {
-      list.innerHTML = "";
-      list.classList.add("search-suggest--hidden");
-      return;
+    const value = input.value.trim();
+
+    if (!value) {
+        list.innerHTML = "";
+        list.classList.add("search-suggest--hidden");
+        input.dir = "ltr"; 
+        return;
     }
+
+    const isArabic = /^[\u0600-\u06FF]/.test(value);
+    input.dir = isArabic ? "rtl" : "ltr";
+
     run();
   });
 
@@ -103,3 +110,6 @@ export function bindGlobalSearch(opts) {
     }
   });
 }
+
+
+
