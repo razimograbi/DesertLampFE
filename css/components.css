@@ -487,6 +487,8 @@ html[data-theme="light"] .theme-switch__icon--sun {
   line-height: 1.3;
   letter-spacing: -0.01em;
   color: var(--on_surface);
+  text-align: right;
+  padding-top: 1rem;
 }
 
 /*
